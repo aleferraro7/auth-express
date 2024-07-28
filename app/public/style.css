@@ -1,0 +1,42 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+}
+
+.form-container {
+  width: 500px;
+  border: white 1px solid;
+  padding: 50px 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form + p {
+  align-items: center;
+}
+
+input,
+button {
+  border: unset;
+  border-radius: 4px;
+  padding: 15px 30px;
+}
+
+/* .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  left: -10000px;
+  top: auto;
+} */
