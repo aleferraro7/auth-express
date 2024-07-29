@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: rgb(2, 0, 27);
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -30,6 +30,33 @@ button {
   border: unset;
   border-radius: 4px;
   padding: 15px 30px;
+}
+
+button {
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.error-login {
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.home-container {
+  align-items: center;
+}
+
+.home-buttons-container {
+  display: flex;
+}
+
+.home-buttons-container > p {
+  margin: 0 20px;
 }
 
 /* .sr-only {
