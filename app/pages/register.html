@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="register.js"></script>
-</head>
-<body>
-  <h1>Register page</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="register.js"></script> -->
+  </head>
+  <body>
+    <main>
+      <div class="form-container">
+        <h1>Register Page</h1>
+        <p>Create a new account</p>
+        <form id="register-form">
+          <label for="username"></label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Enter your username"
+          />
+          <label for="email"></label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+          />
+          <label for="password"></label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+          />
+          <button type="submit">Submit</button>
+          <p class="error-login hidden">Invalid credentials</p>
+        </form>
+        <p>
+          Are you already registered?, Log In
+          <a href="/login">Here</a>
+        </p>
+      </div>
+    </main>
+    <script src="register.js"></script>
+  </body>
 </html>

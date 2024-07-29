@@ -3,6 +3,9 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { methods as authentication } from './controllers/authentication.controller.js';
+import { methods as authorization } from './middlewares/authorization.js';
+import cookieParser from 'cookie-parser';
 
 // server
 const app = express();
@@ -13,10 +16,25 @@ console.log('Server running in port:', app.get('port'));
 
 // conf
 app.use(express.static(__dirname + '/public'));
+app.use(express.json());
+app.use(cookieParser());
 
 // routes
-app.get('/', (req, res) => res.sendFile(__dirname + '/pages/home.html'));
-app.get('/register', (req, res) =>
+
+// get
+app.get('/', authorization.onlyPublic, (req, res) =>
+  res.sendFile(__dirname + '/pages/home.html')
+);
+app.get('/register', authorization.onlyPublic, (req, res) =>
   res.sendFile(__dirname + '/pages/register.html')
 );
-app.get('/login', (req, res) => res.sendFile(__dirname + '/pages/login.html'));
+app.get('/login', authorization.onlyPublic, (req, res) =>
+  res.sendFile(__dirname + '/pages/login.html')
+);
+app.get('/admin', authorization.onlyAdmin, (req, res) =>
+  res.sendFile(__dirname + '/pages/admin/admin.html')
+);
+
+// post
+app.post('/api/register', authentication.register);
+app.post('/api/login', authentication.login);
